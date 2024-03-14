@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # DRF
+    "rest_framework",
+    "rest_framework_api_key",
+
     # Apps from our project
     'codeleap_blog',
 ]
@@ -133,3 +137,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#
+# API Key Framework
+#
+# ! Turning this off to make tests easier on the part of CodeLeap
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework_api_key.permissions.HasAPIKey",
+#     ],
+# }
