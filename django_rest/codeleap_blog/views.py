@@ -30,6 +30,14 @@ class BlogpostAPIView(viewsets.ViewSet):
         try:
             blogposts = Blogpost.objects.all()
             blogposts_serialized = BlogpostSerializer(blogposts, many=True)
-            return JsonResponse(blogposts_serialized.data, safe=False, status=status.HTTP_200_OK)
+
+            # Organizing data the exact same way as returned by a GET request to https://dev.codeleap.co.uk/careers/
+            body = {
+                'count': len(blogposts_serialized.data),
+                'next': None,
+                'previous': None,
+                'results': blogposts_serialized.data,
+            }
+            return JsonResponse(body, safe=False, status=status.HTTP_200_OK)
         except Exception as exc:
             return JsonResponse({'message': f'Error! Exception ocurred ({exc.__class__.__name__}): {exc}'}, safe=False, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
