@@ -77,3 +77,16 @@ class BlogpostAPIView(viewsets.ViewSet):
             return JsonResponse({'message': f'Error! No Blogpost found with ID {pk}'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as exc:
             return JsonResponse({'message': f'Error! Exception ocurred ({exc.__class__.__name__}): {exc}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+    def delete(self, request, pk:int):
+        '''Deletes a single Blogpost by ID'''
+
+        try:
+            blogpost = Blogpost.objects.get(pk=pk)
+            blogpost.delete()
+            return JsonResponse({}, status=status.HTTP_200_OK)
+        except Blogpost.DoesNotExist:
+            return JsonResponse({'message': f'Error! No Blogpost found with ID {pk}'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as exc:
+            return JsonResponse({'message': f'Error! Exception ocurred ({exc.__class__.__name__}): {exc}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
