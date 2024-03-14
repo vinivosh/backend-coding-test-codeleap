@@ -141,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #
 # API Key Framework
 #
-# ! Turning this off to make tests easier on the part of CodeLeap
+# ! Turning this off to make tests easier on CodeLeap's part
 # REST_FRAMEWORK = {
 #     "DEFAULT_PERMISSION_CLASSES": [
 #         "rest_framework_api_key.permissions.HasAPIKey",

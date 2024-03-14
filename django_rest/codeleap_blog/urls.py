@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from codeleap_blog import views
+
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    # Get a single Blogpost
+    path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read'})),
 ]
