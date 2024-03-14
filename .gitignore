@@ -367,3 +367,12 @@ cython_debug/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django
+
+
+
+# * ############################################################################
+# * Other stuff
+# * ############################################################################
+
+# Files containing secret environment variables
+.env*
