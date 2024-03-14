@@ -2,7 +2,7 @@ services:
   db-codeleap:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres-codeleap:/var/lib/postgresql/data
     env_file:
       - ./.env.dev
   web-codeleap:
@@ -16,3 +16,6 @@ services:
       - ./.env.dev
     depends_on:
       - db-codeleap
+
+volumes:
+  postgres-codeleap:
