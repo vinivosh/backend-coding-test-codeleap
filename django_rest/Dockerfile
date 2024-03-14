@@ -8,9 +8,9 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory
 WORKDIR /code/
 
-# # Install psycopg2 dependencies
-# RUN apk update \
-#     && apk add postgresql-dev gcc python3-dev musl-dev build-base
+# Install psycopg2 dependencies
+RUN apk update \
+    && apk add postgresql-dev gcc musl-dev build-base
 
 # Defining a Virtual environment for the container
 ENV VIRTUAL_ENV=/opt/venv
