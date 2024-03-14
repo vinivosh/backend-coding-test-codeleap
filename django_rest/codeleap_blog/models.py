@@ -9,3 +9,6 @@ class Blogpost(models.Model):
     created_datetime = models.DateTimeField(default=django_now, editable=False)
     title = models.CharField(max_length=140)
     content = models.TextField(max_length=2097152, verbose_name='') # Allowing roughly 2MB of ASCII text
+
+    def __str__(self):
+        return f'#{self.id} — "{self.title[:35]}", by {self.username[:25]}'
