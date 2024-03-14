@@ -22,7 +22,8 @@ from codeleap_blog import views
 
 urlpatterns = [
     # (GET) Retrieve a single Blogpost
-    path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read'})),\
+    # (PATCH) Update a single Blogpost
+    path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read', 'patch': 'update'})),\
 
     # (GET) Retrieve all Blogposts
     # (POST) Create a new Blogpost

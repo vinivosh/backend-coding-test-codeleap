@@ -12,3 +12,8 @@ class BlogpostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blogpost
         fields = ['username', 'title', 'content']
+
+class BlogpostUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blogpost
+        fields = ['title', 'content']
