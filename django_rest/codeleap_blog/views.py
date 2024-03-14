@@ -43,3 +43,17 @@ class BlogpostAPIView(viewsets.ViewSet):
             return JsonResponse(body, safe=False, status=status.HTTP_200_OK)
         except Exception as exc:
             return JsonResponse({'message': f'Error! Exception ocurred ({exc.__class__.__name__}): {exc}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def create(self, request):
+        '''Creates a new Blogpost'''
+
+        try:
+            blogpost_data = JSONParser().parse(request)
+            blogpost_serialized = BlogpostCreateSerializer(data=blogpost_data)
+            if blogpost_serialized.is_valid():
+                blogpost_created:Blogpost = blogpost_serialized.save()
+                blogpost_serialized = BlogpostSerializer(blogpost_created)
+                return JsonResponse(blogpost_serialized.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(blogpost_serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as exc:
+            return JsonResponse({'message': f'Error! Exception ocurred ({exc.__class__.__name__}): {exc}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

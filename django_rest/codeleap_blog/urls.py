@@ -21,9 +21,10 @@ from django.urls import path
 from codeleap_blog import views
 
 urlpatterns = [
-    # Get a single Blogpost
+    # (GET) Retrieve a single Blogpost
     path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read'})),\
-    
-    # Get all Blogposts
-    path(r'api/blogpost', views.BlogpostAPIView.as_view({'get': 'list'})),
+
+    # (GET) Retrieve all Blogposts
+    # (POST) Create a new Blogpost
+    path(r'api/blogpost', views.BlogpostAPIView.as_view({'get': 'list', 'post': 'create'})),
 ]
