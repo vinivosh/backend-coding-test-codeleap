@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from codeleap_blog.models import *
+
+
+
+@admin.register(Blogpost)
+class BlogpostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'username', 'id', 'created_datetime')
+    search_fields = ['id', 'username', 'title']
