@@ -374,5 +374,8 @@ cython_debug/
 # * Other stuff
 # * ############################################################################
 
+# Pyenv configuration
+.python-version
+
 # Files containing secret environment variables
 .env*
