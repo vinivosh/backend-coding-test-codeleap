@@ -27,9 +27,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-y6qh6i5*yh=f-l
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    # Localhost
     'localhost',
     '0.0.0.0',
     '127.0.0.1',
+
+    # Static external IP in GCP (vini-gcp-static-ipv4)
+    '34.95.167.214',
 ]
 
 
