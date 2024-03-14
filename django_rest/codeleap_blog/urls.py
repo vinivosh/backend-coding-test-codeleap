@@ -22,5 +22,8 @@ from codeleap_blog import views
 
 urlpatterns = [
     # Get a single Blogpost
-    path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read'})),
+    path(r'api/blogpost/<pk>', views.BlogpostAPIView.as_view({'get': 'read'})),\
+    
+    # Get all Blogposts
+    path(r'api/blogpost', views.BlogpostAPIView.as_view({'get': 'list'})),
 ]
